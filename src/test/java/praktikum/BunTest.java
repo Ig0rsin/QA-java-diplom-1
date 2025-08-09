@@ -23,5 +23,21 @@ public class BunTest {
     public void testGetPrice() {
         assertEquals(TestData.BUN_MAX_PRICE, bun.getPrice(), TestData.DELTA);
     }
-// не добавился в гитхаб
+    @Test
+    public void testBunWithNullNameAndGetPrice() {
+        String name = null; // имя булки не задано
+        Bun bunWithNullName = new Bun(name, TestData.BUN_MAX_PRICE);
+        assertNull(bunWithNullName.getName(), "Название булочки не задано");
+        assertEquals(TestData.BUN_MAX_PRICE, bunWithNullName.getPrice(), TestData.DELTA);
+    }
+
+    @Test
+    public void testBunWithValidNameAndNegativePrice() {
+        String name = TestData.BUN_NAME;
+
+        // при попытке создать Bun с отрицательной ценой выбрасывается исключение + дополнил Bun.java
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Bun(name, -100.0f);
+        });
+    }
 }

@@ -43,13 +43,15 @@ public class BurgerTest {
     }
 
     @Test
-    public void testAddIngredient() {
+    public void testAddIngredient() { // придумать параметризованные тесты на разное количество ингридиентов (начинка и соус)
         burger.addIngredient(cream);
         assertEquals(1, burger.ingredients.size());
     }
 
+    //добавить исключеня для жакоки веб. 0:41
+
     @Test
-    public void testRemoveIngredient() {
+    public void testRemoveIngredient() { // придумать параметризованные тесты на разное количество ингридиентов
         burger.addIngredient(cream);
         burger.addIngredient(butter);
         burger.addIngredient(jam);
